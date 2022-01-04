@@ -42,6 +42,27 @@ class Solution:
       return currentLevelTraversal
 
 
+# BFS Traversal if the expected result is just order of traversal, ie return type of levelOrder is List[int] instead of List[List[int]]
+# class Solution:
+
+#     def __init__(self):
+#       self.traversal = []
+#       self.queue = []
+
+#     def levelOrder(self, root: Optional[TreeNode]) -> List[int]:
+#       self.queue.append(root)
+#       while(len(self.queue) > 0):
+#         node = self.queue[0]
+#         self.queue.pop(0)
+#         if (node is None):
+#           continue
+
+#         self.queue.append(node.left)
+#         self.queue.append(node.right)
+#         self.traversal.append(node.val)
+
+#       return self.traversal
+
 solution = Solution()
 answer = solution.isValidBST()
 print(answer)
