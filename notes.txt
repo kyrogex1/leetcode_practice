@@ -1,0 +1,13 @@
+Notes
+
+1.Binary Tree
+
+Definitions
+- Binary Tree: A tree whose elements have at most 2 children
+- Leaf / External / Terminal Node: Nodes with no children
+- Types of Trees (https://towardsdatascience.com/5-types-of-binary-tree-with-cool-illustrations-9b335c430254)
+  - Full Binary Tree: Binary Tree in which every node has 0 or 2 children
+  - Complete Binary Tree: Complete Binary Tree has all levels completely filled with nodes except the last level and in the last level, all the nodes are as left side as possible.
+  - Perfect Binary Tree: Binary Tree in which all internal nodes have 2 children and all the leaf nodes are at the same depth or same level.
+  - Balanced Binary Tree: Binary tree in which height of the left and the right sub-trees of every node may differ by at most 1.
+  - Degenerate Binary Tree: Binary Tree where every parent node has only one child node.
