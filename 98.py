@@ -21,24 +21,31 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
-      return self.isValidBSTWrapper(root)[0]
+        def isValidBST(self, root: Optional[TreeNode]) -> bool:
+            return self.isValidBSTUnwrapped(root)[0]
 
-    def isValidBSTWrapper(self, root: Optional[TreeNode]) -> Tuple[bool, int, int]:
-      ## Terminating case for child of leave nodes
-      if (root is None):
-        return True, (2**31), -(2**31)
+        def isValidBSTUnwrapped(self, root: Optional[TreeNode]) -> Tuple[bool, int, int]:
+            # Set smallest and greatest to be None so that leaf node can set the actual value to itself.
+            if (root is None):
+                return True, None, None
 
-      isLeftSubtreeValid, leftSmallest, leftGreatest = self.isValidBSTWrapper(root.left)
-      isLeftValid = isLeftSubtreeValid and (leftGreatest < root.val)
-      leftSmallest = root.val if (leftSmallest == 2**31) else leftSmallest
+            leftIsValidBST, leftSmallest, leftGreatest = self.isValidBSTUnwrapped(root.left)
+            rightIsValidBST, rightSmallest, rightGreatest = self.isValidBSTUnwrapped(root.right)
 
-      isRightSubtreeValid, rightSmallest, rightGreatest = self.isValidBSTWrapper(root.right)
-      isRightValid = isRightSubtreeValid and (rightSmallest > root.val)
-      rightGreatest = root.val if (rightGreatest == -(2**31)) else rightGreatest
+            isTreeValid = (rightIsValidBST and leftIsValidBST) and (leftGreatest is None or leftGreatest < root.val) and (rightSmallest is None or rightSmallest > root.val)
 
-      return (isLeftValid and isRightValid), leftSmallest, rightGreatest
+            # If leaf node, set leftSmallest and rightGreatest to root.val
+            if (rightGreatest is None):
+                rightGreatest = root.val
+            if (leftSmallest is None):
+                leftSmallest = root.val
+
+            return isTreeValid, leftSmallest, rightGreatest
 
 solution = Solution()
-answer = solution.isValidBST(TreeNode(-2147483648))
+root = TreeNode(2)
+root.left = TreeNode(1)
+root.right = TreeNode(3)
+
+answer = solution.isValidBST(root)
 print(answer)
