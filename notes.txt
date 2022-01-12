@@ -6,8 +6,26 @@ Definitions
 - Binary Tree: A tree whose elements have at most 2 children
 - Leaf / External / Terminal Node: Nodes with no children
 - Types of Trees (https://towardsdatascience.com/5-types-of-binary-tree-with-cool-illustrations-9b335c430254)
-  - Full Binary Tree: Binary Tree in which every node has 0 or 2 children
-  - Complete Binary Tree: Complete Binary Tree has all levels completely filled with nodes except the last level and in the last level, all the nodes are as left side as possible.
-  - Perfect Binary Tree: Binary Tree in which all internal nodes have 2 children and all the leaf nodes are at the same depth or same level.
-  - Balanced Binary Tree: Binary tree in which height of the left and the right sub-trees of every node may differ by at most 1.
-  - Degenerate Binary Tree: Binary Tree where every parent node has only one child node.
+    - Full Binary Tree: Binary Tree in which every node has 0 or 2 children
+    - Complete Binary Tree: Complete Binary Tree has all levels completely filled with nodes except the last level and in the last level, all the nodes are as left side as possible.
+    - Perfect Binary Tree: Binary Tree in which all internal nodes have 2 children and all the leaf nodes are at the same depth or same level.
+    - Balanced Binary Tree: Binary tree in which height of the left and the right sub-trees of every node may differ by at most 1.
+    - Degenerate Binary Tree: Binary Tree where every parent node has only one child node.
+
+
+               4
+            /     \
+           2       6
+          /  \    / \
+         1    3  5   7
+- Types of Traversals [Uses here https://stackoverflow.com/a/42477229]
+    DFS
+    1. Preorder Traversal = Process the root BEFORE processing ALL its children [4, 2, 1, 3, 6, 5, 7]
+        - Uses: Preorder traversal is used to create a copy of the tree. ?
+    2. Inorder Traversal = Process 1 child(can be left or right, but typically left) BEFORE processing the root, THEN process the other child [1, 2, 3, 4, 5, 6, 7]
+        - Uses: Can be used to print a Binary Search Tree in increasing order
+    3. Postorder Traversal = Process ALL children BEFORE processing the root [1, 3, 2, 6, 5, 7, 4]
+        - Uses: Postorder traversal is used to delete the tree. ?
+
+    BFS
+    1. Level Order Traversal
