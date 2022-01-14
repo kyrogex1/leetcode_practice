@@ -5,6 +5,8 @@ from typing import *
 
 # Given the root of a binary tree, invert the tree, and return its root.
 
+# According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -22,15 +24,3 @@ class Solution:
         self.invertTree(root.right)
 
         return root
-
-
-solution = Solution()
-
-## Binary Tree Setup
-root = TreeNode(1)
-root.left = TreeNode(2)
-root.right = None
-
-# Try solution
-answer = solution.isBalanced(root)
-print(answer)
