@@ -1,11 +1,13 @@
 from typing import *
 
-# 817. Linked List Components [Re-Do]
-# https://leetcode.com/problems/linked-list-components/
+# 116. Populating Next Right Pointers in Each Node [Re-Do / Or just Re-Do 117.py]
+# https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 
-# You are given the head of a linked list containing unique integer values and an integer array nums that is a subset of the linked list values.
+# You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
 
-# Return the number of connected components in nums where two values are connected if they appear consecutively in the linked list.
+# Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+
+# Initially, all next pointers are set to NULL.
 
 # Definition for singly-linked list.
 class ListNode:
@@ -72,5 +74,23 @@ class Solution:
 #             self.connect(right)
             
 #         return root
+
+    # BFS Solution
+    # def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+    #     queue = [root]
+    #     counter = 0
+    #     nextPowerLimit = 1
+        
+    #     while(queue[0] is not None):
+    #         current = queue.pop(0)
+    #         counter += 1
+    #         if (counter == 2 ** nextPowerLimit - 1):
+    #             nextPowerLimit += 1
+    #         else:
+    #             current.next = queue[0]
             
+    #         queue.append(current.left)
+    #         queue.append(current.right)
+            
+    #     return root
         
